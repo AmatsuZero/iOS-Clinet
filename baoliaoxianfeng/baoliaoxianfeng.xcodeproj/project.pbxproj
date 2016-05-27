@@ -52,8 +52,8 @@
 		857AF4B61CF7E7420090A3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		857AF4C31CF7F6720090A3F2 /* DJCustomURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCustomURLProtocol.h; sourceTree = "<group>"; };
 		857AF4C41CF7F6720090A3F2 /* DJCustomURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCustomURLProtocol.m; sourceTree = "<group>"; };
-		857AF4C61CF7F87B0090A3F2 /* DJRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJRootViewController.h; sourceTree = "<group>"; };
-		857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJRootViewController.m; sourceTree = "<group>"; };
+		857AF4C61CF7F87B0090A3F2 /* DJRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJRootViewController.h; path = ../DJRootViewController.h; sourceTree = "<group>"; };
+		857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DJRootViewController.m; path = ../DJRootViewController.m; sourceTree = "<group>"; };
 		857AF4C91CF7FD6A0090A3F2 /* CommonDefine.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.pch; sourceTree = "<group>"; };
 		857AF4CA1CF821B20090A3F2 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
 		B7DA5293FBDE8E9E4381BA1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,11 +128,10 @@
 		857AF48E1CF7E7420090A3F2 /* baoliaoxianfeng */ = {
 			isa = PBXGroup;
 			children = (
+				857AF4CB1CF823D20090A3F2 /* BaseController */,
 				857AF4C21CF7F6370090A3F2 /* Network */,
 				857AF4921CF7E7420090A3F2 /* DJAppDelegate.h */,
 				857AF4931CF7E7420090A3F2 /* DJAppDelegate.m */,
-				857AF4C61CF7F87B0090A3F2 /* DJRootViewController.h */,
-				857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */,
 				857AF49B1CF7E7420090A3F2 /* Assets.xcassets */,
 				857AF49D1CF7E7420090A3F2 /* LaunchScreen.storyboard */,
 				857AF4A01CF7E7420090A3F2 /* Info.plist */,
@@ -176,6 +175,15 @@
 				857AF4C41CF7F6720090A3F2 /* DJCustomURLProtocol.m */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		857AF4CB1CF823D20090A3F2 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				857AF4C61CF7F87B0090A3F2 /* DJRootViewController.h */,
+				857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */,
+			);
+			path = BaseController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
