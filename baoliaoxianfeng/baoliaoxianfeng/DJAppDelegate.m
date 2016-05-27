@@ -6,7 +6,9 @@
 //  Copyright © 2016年 OneManArmy. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "DJAppDelegate.h"
+#import "DJRootViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -14,9 +16,20 @@
 
 @implementation AppDelegate
 
+-(UIWindow *)window
+{
+    if (!_window) {
+        _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    return _window;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //启动切换为RootViewController
+    self.window.rootViewController = [DJRootViewController getStandardRootVC];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
