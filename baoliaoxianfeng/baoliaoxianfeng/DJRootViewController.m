@@ -7,6 +7,7 @@
 //
 
 #import "DJRootViewController.h"
+#import "Masonry.h"
 
 @interface DJRootViewController ()
 
@@ -27,7 +28,8 @@ static DJRootViewController* this;
 
 -(void)viewDidLoad
 {
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor greenColor];
+    
 }
 
 @end

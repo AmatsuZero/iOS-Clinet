@@ -15,6 +15,8 @@
 		857AF4B51CF7E7420090A3F2 /* baoliaoxianfengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4B41CF7E7420090A3F2 /* baoliaoxianfengUITests.m */; };
 		857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4C41CF7F6720090A3F2 /* DJCustomURLProtocol.m */; };
 		857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */; };
+		857AF4D01CF82A810090A3F2 /* DJAPPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4CF1CF82A810090A3F2 /* DJAPPUtility.m */; };
+		857AF4D81CF82B0F0090A3F2 /* NSString+DJMD5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4D71CF82B0F0090A3F2 /* NSString+DJMD5String.m */; };
 		94C85D88DD9B9790C8A86803 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D874B4C45C4FCB6D614E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,10 @@
 		857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DJRootViewController.m; path = ../DJRootViewController.m; sourceTree = "<group>"; };
 		857AF4C91CF7FD6A0090A3F2 /* CommonDefine.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.pch; sourceTree = "<group>"; };
 		857AF4CA1CF821B20090A3F2 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
+		857AF4CE1CF82A810090A3F2 /* DJAPPUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJAPPUtility.h; sourceTree = "<group>"; };
+		857AF4CF1CF82A810090A3F2 /* DJAPPUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJAPPUtility.m; sourceTree = "<group>"; };
+		857AF4D61CF82B0F0090A3F2 /* NSString+DJMD5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DJMD5String.h"; sourceTree = "<group>"; };
+		857AF4D71CF82B0F0090A3F2 /* NSString+DJMD5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DJMD5String.m"; sourceTree = "<group>"; };
 		B7DA5293FBDE8E9E4381BA1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F58FD785FB0F21ECD86CF753 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +134,8 @@
 		857AF48E1CF7E7420090A3F2 /* baoliaoxianfeng */ = {
 			isa = PBXGroup;
 			children = (
+				857AF4D51CF82B0F0090A3F2 /* Category */,
+				857AF4CD1CF82A6D0090A3F2 /* Util */,
 				857AF4CB1CF823D20090A3F2 /* BaseController */,
 				857AF4C21CF7F6370090A3F2 /* Network */,
 				857AF4921CF7E7420090A3F2 /* DJAppDelegate.h */,
@@ -184,6 +192,24 @@
 				857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */,
 			);
 			path = BaseController;
+			sourceTree = "<group>";
+		};
+		857AF4CD1CF82A6D0090A3F2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				857AF4CE1CF82A810090A3F2 /* DJAPPUtility.h */,
+				857AF4CF1CF82A810090A3F2 /* DJAPPUtility.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		857AF4D51CF82B0F0090A3F2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				857AF4D61CF82B0F0090A3F2 /* NSString+DJMD5String.h */,
+				857AF4D71CF82B0F0090A3F2 /* NSString+DJMD5String.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +395,8 @@
 				857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */,
 				857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */,
 				857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */,
+				857AF4D81CF82B0F0090A3F2 /* NSString+DJMD5String.m in Sources */,
+				857AF4D01CF82A810090A3F2 /* DJAPPUtility.m in Sources */,
 				857AF4911CF7E7420090A3F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
