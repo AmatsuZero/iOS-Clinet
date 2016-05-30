@@ -87,7 +87,8 @@
     CGFloat fontSize = [dict[@"size"] floatValue];
     if (fontSize > 0) {
         CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontSize, NULL);
-        attributes[(id)kCTFontAttributeName] = (__bridge id)fontRef; CFRelease(fontRef);
+        attributes[(id)kCTFontAttributeName] = (__bridge id)fontRef;
+        CFRelease(fontRef);
     }
     NSString *content = dict[@"content"];
     return [[NSAttributedString alloc] initWithString:content attributes:attributes];
@@ -108,7 +109,7 @@
 // 接受一个NSAttributedString和一个config参数，将NSAttributedString转换成CoreTextData返回
 + (DJCoreTextData *)parseAttributedContent:(NSAttributedString *)content config:(DJCTFrameParserConfig*)config { // 创建 CTFramesetterRef 实例
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)content);
-    // 获得要缓制的区域的高度
+    // 获得要绘制的区域的高度
     CGSize restrictSize = CGSizeMake(config.width, CGFLOAT_MAX);
     CGSize coreTextSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0,0), nil, restrictSize, nil);
     CGFloat textHeight = coreTextSize.height;
@@ -116,7 +117,8 @@
     CTFrameRef frame = [self createFrameWithFramesetter:framesetter config:config height:textHeight];
     // 将生成好的 CTFrameRef 实例和计算好的缓制高度保存到 CoreTextData 实例中，最后返回 CoreTextData 实例
     DJCoreTextData *data = [[DJCoreTextData alloc] init];
-    data.ctFrame = frame; data.height = textHeight;
+    data.ctFrame = frame;
+    data.height = textHeight;
     // 释放内存 CFRelease(frame);
     CFRelease(framesetter);
     return data;

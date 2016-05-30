@@ -7,6 +7,7 @@
 //
 
 #import "DJTextDisplay.h"
+#import "Masonry.h"
 #import <CoreText/CoreText.h>
 
 @implementation DJTextDisplay
@@ -18,9 +19,19 @@
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
-    if (self.data) {
+    if(self.data){
         CTFrameDraw(self.data.ctFrame, context);
     }
 }
+
+-(void)setData:(DJCoreTextData *)data
+{
+    _data = data;
+    [self makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(data.height);
+    }];
+    [self setNeedsDisplay];
+}
+
 
 @end
