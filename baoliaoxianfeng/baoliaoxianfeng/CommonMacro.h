@@ -9,11 +9,15 @@
 #ifndef CommonMacro_h
 #define CommonMacro_h
 //自定义打印
-#ifdef DEBUG
-# define DLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-# define DLog(...);
-#endif
+#ifdef DEBUG 
+#define debugLog(...) NSLog(__VA_ARGS__) 
+#define debugMethod() NSLog(@"%s", __func__) 
+#else 
+#define debugLog(...) 
+#define debugMethod() 
+#endif 
+//自定义颜色
+#define RGB(A, B, C) [UIColor colorWithRed:A/255.0 green:B/255.0 blue:C/255.0 alpha:1.0]
 //Masonry省略mas_开头
 #define MAS_SHORTHAND
 

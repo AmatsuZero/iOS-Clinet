@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85198AC41CFBC81800026C48 /* DJTextDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AC31CFBC81800026C48 /* DJTextDisplay.m */; };
+		85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */; };
+		85198ACD1CFBD13E00026C48 /* DJCTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198ACC1CFBD13E00026C48 /* DJCTFrameParserConfig.m */; };
+		85198AD01CFBD1B100026C48 /* DJCTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198ACF1CFBD1B100026C48 /* DJCTFrameParser.m */; };
+		85198AD31CFBD26F00026C48 /* DJCoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AD21CFBD26F00026C48 /* DJCoreTextData.m */; };
+		85198AD51CFBE4DE00026C48 /* dummyJSON in Resources */ = {isa = PBXBuildFile; fileRef = 85198AD41CFBE4DE00026C48 /* dummyJSON */; };
 		857AF4911CF7E7420090A3F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4901CF7E7420090A3F2 /* main.m */; };
 		857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4931CF7E7420090A3F2 /* DJAppDelegate.m */; };
 		857AF49C1CF7E7420090A3F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857AF49B1CF7E7420090A3F2 /* Assets.xcassets */; };
@@ -39,6 +45,17 @@
 
 /* Begin PBXFileReference section */
 		4D81D874B4C45C4FCB6D614E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		85198AC21CFBC81800026C48 /* DJTextDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTextDisplay.h; sourceTree = "<group>"; };
+		85198AC31CFBC81800026C48 /* DJTextDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTextDisplay.m; sourceTree = "<group>"; };
+		85198AC81CFBD06700026C48 /* UIView+frameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frameAdjust.h"; sourceTree = "<group>"; };
+		85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frameAdjust.m"; sourceTree = "<group>"; };
+		85198ACB1CFBD13E00026C48 /* DJCTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCTFrameParserConfig.h; sourceTree = "<group>"; };
+		85198ACC1CFBD13E00026C48 /* DJCTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCTFrameParserConfig.m; sourceTree = "<group>"; };
+		85198ACE1CFBD1B100026C48 /* DJCTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCTFrameParser.h; sourceTree = "<group>"; };
+		85198ACF1CFBD1B100026C48 /* DJCTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCTFrameParser.m; sourceTree = "<group>"; };
+		85198AD11CFBD26F00026C48 /* DJCoreTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCoreTextData.h; sourceTree = "<group>"; };
+		85198AD21CFBD26F00026C48 /* DJCoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCoreTextData.m; sourceTree = "<group>"; };
+		85198AD41CFBE4DE00026C48 /* dummyJSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dummyJSON; sourceTree = "<group>"; };
 		857AF48C1CF7E7410090A3F2 /* baoliaoxianfeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baoliaoxianfeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857AF4901CF7E7420090A3F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		857AF4921CF7E7420090A3F2 /* DJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +126,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		85198AC11CFBC7B600026C48 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				85198AC21CFBC81800026C48 /* DJTextDisplay.h */,
+				85198AC31CFBC81800026C48 /* DJTextDisplay.m */,
+				85198ACB1CFBD13E00026C48 /* DJCTFrameParserConfig.h */,
+				85198ACC1CFBD13E00026C48 /* DJCTFrameParserConfig.m */,
+				85198ACE1CFBD1B100026C48 /* DJCTFrameParser.h */,
+				85198ACF1CFBD1B100026C48 /* DJCTFrameParser.m */,
+				85198AD11CFBD26F00026C48 /* DJCoreTextData.h */,
+				85198AD21CFBD26F00026C48 /* DJCoreTextData.m */,
+				85198AD41CFBE4DE00026C48 /* dummyJSON */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		857AF4831CF7E7410090A3F2 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +167,7 @@
 		857AF48E1CF7E7420090A3F2 /* baoliaoxianfeng */ = {
 			isa = PBXGroup;
 			children = (
+				85198AC11CFBC7B600026C48 /* Text */,
 				857AF4D51CF82B0F0090A3F2 /* Category */,
 				857AF4CD1CF82A6D0090A3F2 /* Util */,
 				857AF4CB1CF823D20090A3F2 /* BaseController */,
@@ -199,6 +233,8 @@
 			children = (
 				857AF4CE1CF82A810090A3F2 /* DJAPPUtility.h */,
 				857AF4CF1CF82A810090A3F2 /* DJAPPUtility.m */,
+				85198AC81CFBD06700026C48 /* UIView+frameAdjust.h */,
+				85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -319,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				857AF49F1CF7E7420090A3F2 /* LaunchScreen.storyboard in Resources */,
+				85198AD51CFBE4DE00026C48 /* dummyJSON in Resources */,
 				857AF49C1CF7E7420090A3F2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,10 +430,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */,
+				85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */,
+				85198AC41CFBC81800026C48 /* DJTextDisplay.m in Sources */,
 				857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */,
 				857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */,
 				857AF4D81CF82B0F0090A3F2 /* NSString+DJMD5String.m in Sources */,
 				857AF4D01CF82A810090A3F2 /* DJAPPUtility.m in Sources */,
+				85198AD31CFBD26F00026C48 /* DJCoreTextData.m in Sources */,
+				85198AD01CFBD1B100026C48 /* DJCTFrameParser.m in Sources */,
+				85198ACD1CFBD13E00026C48 /* DJCTFrameParserConfig.m in Sources */,
 				857AF4911CF7E7420090A3F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
