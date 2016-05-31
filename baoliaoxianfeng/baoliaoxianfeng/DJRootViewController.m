@@ -33,12 +33,13 @@ static DJRootViewController* this;
 {
     DJTextDisplay* textDis = [[DJTextDisplay alloc]init];
     [self.view addSubview:textDis];
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [textDis makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(textDis.superview).with.offset([UIApplication sharedApplication].statusBarFrame.size.height);
         make.left.equalTo(textDis.superview).with.offset(0);
         make.right.equalTo(textDis.superview).with.offset(0);
+        make.height.mas_equalTo(0);
     }];
     
     DJCTFrameParserConfig* config = [[DJCTFrameParserConfig alloc]init];
@@ -47,8 +48,7 @@ static DJRootViewController* this;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"dummyJSON" ofType:@""];
     DJCoreTextData *data = [DJCTFrameParser parseTemplateFile:path config:config];
     textDis.data = data;
-
-    textDis.backgroundColor = [UIColor yellowColor];
+    textDis.backgroundColor = [UIColor whiteColor];
 }
 
 @end

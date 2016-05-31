@@ -55,7 +55,6 @@
     return data;
 }
 
-
 + (DJCoreTextData *)parseTemplateFile:(NSString *)path
                                config:(DJCTFrameParserConfig*)config
 {
@@ -165,6 +164,7 @@
     DJCoreTextData *data = [[DJCoreTextData alloc] init];
     data.ctFrame = frame;
     data.height = textHeight;
+    data.content = content;
     // 释放内存 CFRelease(frame);
     CFRelease(framesetter);
     return data;

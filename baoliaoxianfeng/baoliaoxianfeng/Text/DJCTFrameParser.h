@@ -33,5 +33,22 @@
  *  @return 文本数据
  */
 + (DJCoreTextData *)parseTemplateFile:(NSString *)path config:(DJCTFrameParserConfig*)config;
+/**
+ *  解析NSAttributedString，返回TextData
+ *
+ *  @param content 特殊字符串
+ *  @param config  配置
+ *
+ *  @return CoreTextData
+ */
++ (DJCoreTextData *)parseAttributedContent:(NSAttributedString *)content config:(DJCTFrameParserConfig*)config;
+/**
+ *  通过配置生成特殊字符串的配置字典
+ *
+ *  @param config 配置
+ *
+ *  @return 特殊字符串的字典
+ */
++ (NSMutableDictionary *)attributesWithConfig:(DJCTFrameParserConfig *)config;
 
 @end

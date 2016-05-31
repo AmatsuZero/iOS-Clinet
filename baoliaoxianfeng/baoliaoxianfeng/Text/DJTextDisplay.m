@@ -46,51 +46,28 @@ typedef enum DJCTDisplayViewState : NSInteger {
 @implementation DJTextDisplay
 
 - (id)init {
-    return [self initWithFrame:CGRectZero];
-}
-
--(instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
+    if (self = [super init]) {
         [self setupEvents];
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
+-(DJMagnifiedViewr *)magnifierView
 {
-    [super drawRect:rect];
-    if (self.data == nil) {
-        return;
+    if (!_magnifierView) {
+        _magnifierView = [[DJMagnifiedViewr alloc]init];
+        _magnifierView.viewToMagnify = self;
+        [self addSubview:_magnifierView];
     }
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGContextTranslateCTM(context, 0, self.bounds.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    
-    if (self.state == DJCTDisplayViewStateTouching || self.state == DJCTDisplayViewStateSelecting) {
-        [self drawSelectionArea];
-        [self drawAnchors];
-    }
-    
-    CTFrameDraw(self.data.ctFrame, context);
-    
-    for (DJCoreTextImageData * imageData in self.data.imageArray) {
-        UIImage *image = [UIImage imageNamed:imageData.name];
-        if (image) {
-            CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
-        }
-    }
+    return _magnifierView;
 }
 
 -(void)setData:(DJCoreTextData *)data
 {
     _data = data;
     self.state = DJCTDisplayViewStateNormal;
-    [self makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(data.height);
+    [self updateConstraints:^(MASConstraintMaker *make) {
+      make.height.mas_equalTo(data.height);
     }];
     [self setNeedsDisplay];
 }
@@ -157,7 +134,6 @@ typedef enum DJCTDisplayViewState : NSInteger {
             [self fillSelectionAreaInRect:lineRect];
             break;
         }
-        
         // 2. start和end不在一个line
         // 2.1 如果start在line中，则填充Start后面部分区域
         if ([self isPosition:_selectionStartPosition inRange:range]) {
@@ -179,6 +155,33 @@ typedef enum DJCTDisplayViewState : NSInteger {
             width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
             CGRect lineRect = CGRectMake(linePoint.x, linePoint.y - descent, offset, ascent + descent);
             [self fillSelectionAreaInRect:lineRect];
+        }
+    }
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    if (self.data == nil) {
+        return;
+    }
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    CGContextTranslateCTM(context, 0, self.bounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    
+    if (self.state == DJCTDisplayViewStateTouching || self.state == DJCTDisplayViewStateSelecting) {
+        [self drawSelectionArea];
+        [self drawAnchors];
+    }
+    
+    CTFrameDraw(self.data.ctFrame, context);
+    
+    for (DJCoreTextImageData * imageData in self.data.imageArray) {
+        UIImage *image = [UIImage imageNamed:imageData.name];
+        if (image) {
+            CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
         }
     }
 }
@@ -270,12 +273,7 @@ typedef enum DJCTDisplayViewState : NSInteger {
     return image;
 }
 
-- (UIImageView *)createSelectionAnchorWithTop:(BOOL)isTop {
-    UIImage *image = [self cursorWithFontHeight:FONT_HEIGHT isTop:isTop];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = CGRectMake(0, 0, 11, FONT_HEIGHT);
-    return imageView;
-}
+
 
 - (void)showMenuController {
     if ([self becomeFirstResponder]) {
@@ -373,7 +371,7 @@ typedef enum DJCTDisplayViewState : NSInteger {
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     debugMethod();
-    if (action == @selector(cut:) || action == @selector(copy:) || action == @selector(paste:) || action == @selector(selectAll:)) {
+    if (action == @selector(copy:) || action == @selector(selectAll:)) {
         return YES;
     }
     return NO;
@@ -492,7 +490,27 @@ typedef enum DJCTDisplayViewState : NSInteger {
         [self removeMaginfierView];
         [self showMenuController];
     }
+    
     [self setNeedsDisplay];
+}
+//创建长按选中
+- (UIImageView *)createSelectionAnchorWithTop:(BOOL)isTop {
+    UIImage *image = [self cursorWithFontHeight:FONT_HEIGHT isTop:isTop];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(0, 0, 11, FONT_HEIGHT);
+    return imageView;
+}
+
+#pragma mark -- 呼出菜单操作事件
+-(void)copy:(id)sender
+{
+
+}
+
+
+-(void)selectAll:(id)sender
+{
+
 }
 
 
