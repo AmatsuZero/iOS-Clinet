@@ -282,8 +282,11 @@ typedef enum DJCTDisplayViewState : NSInteger {
         CGAffineTransform transform =  CGAffineTransformMakeTranslation(0, self.bounds.size.height);
         transform = CGAffineTransformScale(transform, 1.f, -1.f);
         selectionRect = CGRectApplyAffineTransform(selectionRect, transform);
-        
+        //菜单类
         UIMenuController *theMenu = [UIMenuController sharedMenuController];
+        UIMenuItem* copyItem = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(copyItemClicked:)];
+        UIMenuItem* resendItem = [[UIMenuItem alloc]initWithTitle:@"分享" action:@selector(shareItemClicked:)];
+        [theMenu setMenuItems:@[copyItem,resendItem]];
         [theMenu setTargetRect:selectionRect inView:self];
         [theMenu setMenuVisible:YES animated:YES];
     }
@@ -371,7 +374,7 @@ typedef enum DJCTDisplayViewState : NSInteger {
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     debugMethod();
-    if (action == @selector(copy:) || action == @selector(selectAll:)) {
+    if (action == @selector(copyItemClicked:) || action == @selector(shareItemClicked:)) {
         return YES;
     }
     return NO;
@@ -502,15 +505,19 @@ typedef enum DJCTDisplayViewState : NSInteger {
 }
 
 #pragma mark -- 呼出菜单操作事件
--(void)copy:(id)sender
+//复制操作
+-(void)copyItemClicked:(id)sender
 {
-
+    debugLog(@"点击了复制！");
+    NSLog(@"%@",[self.data.content attributedSubstringFromRange:NSMakeRange(_selectionStartPosition, _selectionEndPosition-_selectionStartPosition)]);
+    [UIPasteboard generalPasteboard].string = [NSString stringWithFormat:@"%@",[self.data.content attributedSubstringFromRange:NSMakeRange(_selectionStartPosition, _selectionEndPosition-_selectionStartPosition)]];
+    
 }
-
-
--(void)selectAll:(id)sender
+//共享操作
+-(void)shareItemClicked:(id)sender
 {
-
+    debugLog(@"点击了分享！");
+    //待实现shareExtension
 }
 
 
