@@ -12,7 +12,9 @@
  *  @discussion 用于配置绘制的参数，例如：文字颜色，大小，行间距等
  */
 @interface DJCTFrameParserConfig : NSObject
-
+/**
+ *  绘制区域的宽度
+ */
 @property (nonatomic, assign) CGFloat width;
 /**
  *  字体大小
