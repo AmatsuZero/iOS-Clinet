@@ -25,6 +25,8 @@
     return self;
 }
 
+
+
 -(UIColor*)convertToColorType:(NSString*)color
 {
         if ([color isEqualToString:@"red"]) {
@@ -74,6 +76,22 @@
         alpha = 1;
     }
     return [UIColor colorWithRed:(float)(red/255.0f)green:(float)(green/255.0f)blue:(float)(blue/255.0f) alpha:(float)(alpha/255.0f)];
+}
+
+#pragma mark -- 重写图片宽度和高度的getter方法，防止没有值不显示
+-(CGFloat)width{
+    if (_width==0) {
+        _width = [UIScreen mainScreen].bounds.size.width - 20.0*2;
+    }
+    return _width;
+}
+
+-(CGFloat)height
+{
+    if (_height == 0) {
+        _height = 100;
+    }
+    return _height;
 }
 
 @end

@@ -10,10 +10,18 @@
 @class DJNewsDetailModel;
 @class DJTextImg;
 
+@class DJNewsContentMgr;
+
+@protocol DJNewsContentMgrDelegate <NSObject>
+
+-(void)contentMgr:(DJNewsContentMgr*)mgr refreshWithNewContent:(NSAttributedString*)attrStr;
+
+@end
+
 @interface DJNewsContentMgr : NSObject
 
-+(instancetype)getStandardContentMgr;
-
 @property(nonatomic, copy) NSAttributedString* textContent;
+
+@property(nonatomic,weak) id <DJNewsContentMgrDelegate> delegate;
 
 @end

@@ -10,8 +10,9 @@
 #import "DJNewsContentMgr.h"
 #import "UIImageView+WebCache.h"
 
-@interface DJNewsDetailView ()
+@interface DJNewsDetailView ()<DJNewsContentMgrDelegate>
 
+@property(nonatomic,strong)DJNewsContentMgr* mgr;
 
 @end
 
@@ -20,9 +21,16 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.attributedText = [DJNewsContentMgr getStandardContentMgr].textContent;
+        _mgr = [DJNewsContentMgr new];
+        _mgr.delegate = self;
+        self.attributedText = [_mgr textContent];
     }
     return self;
+}
+
+-(void)contentMgr:(DJNewsContentMgr *)mgr refreshWithNewContent:(NSAttributedString *)attrStr
+{
+    self.attributedText = attrStr;
 }
 
 @end
