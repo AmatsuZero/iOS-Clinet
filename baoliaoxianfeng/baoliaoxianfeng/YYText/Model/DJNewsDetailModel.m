@@ -25,8 +25,6 @@
     return self;
 }
 
-
-
 -(UIColor*)convertToColorType:(NSString*)color
 {
         if ([color isEqualToString:@"red"]) {
@@ -51,9 +49,12 @@
             return [UIColor purpleColor];
         }  else if ([color isEqualToString:@"default"]){//默认颜色为黑色
             return [UIColor blackColor];
+        } else if ([color isEqualToString:@"white"]){
+            return [UIColor whiteColor];
         } else if ([color isEqualToString:@"brown"]){
             return [UIColor brownColor];
-        } else {//传入为16进制颜色
+        }
+        else {//传入为16进制颜色
             return [self getColor:color];
         }
 }

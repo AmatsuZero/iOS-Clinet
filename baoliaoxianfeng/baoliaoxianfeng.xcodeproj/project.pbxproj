@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		85122DB11D000E42009B7FD9 /* DJNewsContentMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */; };
 		85122DB21D000E42009B7FD9 /* DJNewsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */; };
-		85122DB31D000E42009B7FD9 /* DJTextImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 85122DAF1D000E42009B7FD9 /* DJTextImg.m */; };
 		85122DB41D000E42009B7FD9 /* dummyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 85122DB01D000E42009B7FD9 /* dummyJSON.json */; };
 		85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */; };
 		851B0D4C1CFDAC5000E19B02 /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 851B0D4B1CFDAC5000E19B02 /* NoImage.png */; };
@@ -50,8 +49,6 @@
 		85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJNewsContentMgr.m; sourceTree = "<group>"; };
 		85122DAC1D000E42009B7FD9 /* DJNewsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJNewsDetailModel.h; sourceTree = "<group>"; };
 		85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJNewsDetailModel.m; sourceTree = "<group>"; };
-		85122DAE1D000E42009B7FD9 /* DJTextImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTextImg.h; sourceTree = "<group>"; };
-		85122DAF1D000E42009B7FD9 /* DJTextImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTextImg.m; sourceTree = "<group>"; };
 		85122DB01D000E42009B7FD9 /* dummyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummyJSON.json; sourceTree = "<group>"; };
 		85198AC81CFBD06700026C48 /* UIView+frameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frameAdjust.h"; sourceTree = "<group>"; };
 		85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frameAdjust.m"; sourceTree = "<group>"; };
@@ -135,8 +132,6 @@
 				85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */,
 				85122DAC1D000E42009B7FD9 /* DJNewsDetailModel.h */,
 				85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */,
-				85122DAE1D000E42009B7FD9 /* DJTextImg.h */,
-				85122DAF1D000E42009B7FD9 /* DJTextImg.m */,
 				85122DB01D000E42009B7FD9 /* dummyJSON.json */,
 			);
 			path = Model;
@@ -452,7 +447,6 @@
 				857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */,
 				85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */,
 				857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */,
-				85122DB31D000E42009B7FD9 /* DJTextImg.m in Sources */,
 				85122DB21D000E42009B7FD9 /* DJNewsDetailModel.m in Sources */,
 				85F279FC1CFFC231001EA1C9 /* DJNewsDetailView.m in Sources */,
 				857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */,

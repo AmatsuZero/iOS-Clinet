@@ -30,15 +30,17 @@ static DJRootViewController* this;
 -(void)viewDidLoad
 {
     DJNewsDetailView* textDis = [[DJNewsDetailView alloc]init];
+    
     textDis.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:textDis];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:textDis];
     [textDis makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(textDis.superview).with.offset([UIApplication sharedApplication].statusBarFrame.size.height);
         make.left.equalTo(textDis.superview).with.offset(0);
         make.right.equalTo(textDis.superview).with.offset(0);
         make.bottom.equalTo(textDis.superview).with.offset(0);
     }];
+    
     
 }
 

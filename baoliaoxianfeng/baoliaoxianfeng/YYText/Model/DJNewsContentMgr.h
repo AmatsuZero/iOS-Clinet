@@ -14,13 +14,14 @@
 
 @protocol DJNewsContentMgrDelegate <NSObject>
 
--(void)contentMgr:(DJNewsContentMgr*)mgr refreshWithNewContent:(NSAttributedString*)attrStr;
+-(void)contentMgr:(DJNewsContentMgr*)mgr openLink:(NSURL*)link;
+-(void)contentMgr:(DJNewsContentMgr *)mgr ViewImg:(UIImage*)img;
 
 @end
 
 @interface DJNewsContentMgr : NSObject
 
-@property(nonatomic, copy) NSAttributedString* textContent;
+@property(nonatomic, strong) NSMutableAttributedString* textContent;
 
 @property(nonatomic,weak) id <DJNewsContentMgrDelegate> delegate;
 
