@@ -8,9 +8,7 @@
 
 #import "DJRootViewController.h"
 #import "Masonry.h"
-#import "DJTextDisplay.h"
-#import "DJCTFrameParserConfig.h"
-#import "DJCTFrameParser.h"
+#import "DJNewsDetailView.h"
 
 @interface DJRootViewController ()
 
@@ -31,24 +29,17 @@ static DJRootViewController* this;
 
 -(void)viewDidLoad
 {
-    DJTextDisplay* textDis = [[DJTextDisplay alloc]init];
+    DJNewsDetailView* textDis = [[DJNewsDetailView alloc]init];
+    textDis.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:textDis];
     self.view.backgroundColor = [UIColor whiteColor];
-    
     [textDis makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(textDis.superview).with.offset([UIApplication sharedApplication].statusBarFrame.size.height);
         make.left.equalTo(textDis.superview).with.offset(0);
         make.right.equalTo(textDis.superview).with.offset(0);
-        make.height.mas_equalTo(0);
+        make.bottom.equalTo(textDis.superview).with.offset(0);
     }];
     
-    DJCTFrameParserConfig* config = [[DJCTFrameParserConfig alloc]init];
-    config.textColor = [UIColor greenColor];
-    config.width = self.view.frame.size.width;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"dummyJSON" ofType:@"json"];
-    DJCoreTextData *data = [DJCTFrameParser parseTemplateFile:path config:config];
-    textDis.data = data;
-    textDis.backgroundColor = [UIColor whiteColor];
 }
 
 @end

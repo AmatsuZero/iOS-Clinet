@@ -7,15 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85198AC41CFBC81800026C48 /* DJTextDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AC31CFBC81800026C48 /* DJTextDisplay.m */; };
+		85122DB11D000E42009B7FD9 /* DJNewsContentMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */; };
+		85122DB21D000E42009B7FD9 /* DJNewsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */; };
+		85122DB31D000E42009B7FD9 /* DJTextImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 85122DAF1D000E42009B7FD9 /* DJTextImg.m */; };
+		85122DB41D000E42009B7FD9 /* dummyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 85122DB01D000E42009B7FD9 /* dummyJSON.json */; };
 		85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */; };
-		85198ACD1CFBD13E00026C48 /* DJCTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198ACC1CFBD13E00026C48 /* DJCTFrameParserConfig.m */; };
-		85198AD01CFBD1B100026C48 /* DJCTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198ACF1CFBD1B100026C48 /* DJCTFrameParser.m */; };
-		85198AD31CFBD26F00026C48 /* DJCoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AD21CFBD26F00026C48 /* DJCoreTextData.m */; };
-		85198AD51CFBE4DE00026C48 /* dummyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 85198AD41CFBE4DE00026C48 /* dummyJSON.json */; };
-		85198AE01CFC397B00026C48 /* DJCoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198ADF1CFC397B00026C48 /* DJCoreTextImageData.m */; };
-		85198AEB1CFC3FA300026C48 /* DJCoreTextLinkData.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AEA1CFC3FA300026C48 /* DJCoreTextLinkData.m */; };
-		85198AF11CFC4C6D00026C48 /* DJMagnifiedViewr.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AF01CFC4C6D00026C48 /* DJMagnifiedViewr.m */; };
 		851B0D4C1CFDAC5000E19B02 /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 851B0D4B1CFDAC5000E19B02 /* NoImage.png */; };
 		857AF4911CF7E7420090A3F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4901CF7E7420090A3F2 /* main.m */; };
 		857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4931CF7E7420090A3F2 /* DJAppDelegate.m */; };
@@ -27,6 +23,7 @@
 		857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */; };
 		857AF4D01CF82A810090A3F2 /* DJAPPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4CF1CF82A810090A3F2 /* DJAPPUtility.m */; };
 		857AF4D81CF82B0F0090A3F2 /* NSString+DJMD5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4D71CF82B0F0090A3F2 /* NSString+DJMD5String.m */; };
+		85F279FC1CFFC231001EA1C9 /* DJNewsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F279FB1CFFC231001EA1C9 /* DJNewsDetailView.m */; };
 		94C85D88DD9B9790C8A86803 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D874B4C45C4FCB6D614E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,24 +46,16 @@
 
 /* Begin PBXFileReference section */
 		4D81D874B4C45C4FCB6D614E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		85198AC21CFBC81800026C48 /* DJTextDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTextDisplay.h; sourceTree = "<group>"; };
-		85198AC31CFBC81800026C48 /* DJTextDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTextDisplay.m; sourceTree = "<group>"; };
+		85122DAA1D000E42009B7FD9 /* DJNewsContentMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJNewsContentMgr.h; sourceTree = "<group>"; };
+		85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJNewsContentMgr.m; sourceTree = "<group>"; };
+		85122DAC1D000E42009B7FD9 /* DJNewsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJNewsDetailModel.h; sourceTree = "<group>"; };
+		85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJNewsDetailModel.m; sourceTree = "<group>"; };
+		85122DAE1D000E42009B7FD9 /* DJTextImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTextImg.h; sourceTree = "<group>"; };
+		85122DAF1D000E42009B7FD9 /* DJTextImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTextImg.m; sourceTree = "<group>"; };
+		85122DB01D000E42009B7FD9 /* dummyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummyJSON.json; sourceTree = "<group>"; };
 		85198AC81CFBD06700026C48 /* UIView+frameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frameAdjust.h"; sourceTree = "<group>"; };
 		85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frameAdjust.m"; sourceTree = "<group>"; };
-		85198ACB1CFBD13E00026C48 /* DJCTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCTFrameParserConfig.h; sourceTree = "<group>"; };
-		85198ACC1CFBD13E00026C48 /* DJCTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCTFrameParserConfig.m; sourceTree = "<group>"; };
-		85198ACE1CFBD1B100026C48 /* DJCTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCTFrameParser.h; sourceTree = "<group>"; };
-		85198ACF1CFBD1B100026C48 /* DJCTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCTFrameParser.m; sourceTree = "<group>"; };
-		85198AD11CFBD26F00026C48 /* DJCoreTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCoreTextData.h; sourceTree = "<group>"; };
-		85198AD21CFBD26F00026C48 /* DJCoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCoreTextData.m; sourceTree = "<group>"; };
-		85198AD41CFBE4DE00026C48 /* dummyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummyJSON.json; sourceTree = "<group>"; };
-		85198ADE1CFC397B00026C48 /* DJCoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCoreTextImageData.h; sourceTree = "<group>"; };
-		85198ADF1CFC397B00026C48 /* DJCoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCoreTextImageData.m; sourceTree = "<group>"; };
-		85198AE91CFC3FA300026C48 /* DJCoreTextLinkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCoreTextLinkData.h; sourceTree = "<group>"; };
-		85198AEA1CFC3FA300026C48 /* DJCoreTextLinkData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCoreTextLinkData.m; sourceTree = "<group>"; };
-		85198AEF1CFC4C6D00026C48 /* DJMagnifiedViewr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJMagnifiedViewr.h; sourceTree = "<group>"; };
-		85198AF01CFC4C6D00026C48 /* DJMagnifiedViewr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJMagnifiedViewr.m; sourceTree = "<group>"; };
-		851B0D4B1CFDAC5000E19B02 /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoImage.png; sourceTree = "<group>"; };
+		851B0D4B1CFDAC5000E19B02 /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NoImage.png; path = ../../Text/NoImage.png; sourceTree = "<group>"; };
 		857AF48C1CF7E7410090A3F2 /* baoliaoxianfeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baoliaoxianfeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857AF4901CF7E7420090A3F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		857AF4921CF7E7420090A3F2 /* DJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +79,8 @@
 		857AF4CF1CF82A810090A3F2 /* DJAPPUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJAPPUtility.m; sourceTree = "<group>"; };
 		857AF4D61CF82B0F0090A3F2 /* NSString+DJMD5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DJMD5String.h"; sourceTree = "<group>"; };
 		857AF4D71CF82B0F0090A3F2 /* NSString+DJMD5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DJMD5String.m"; sourceTree = "<group>"; };
+		85F279FA1CFFC231001EA1C9 /* DJNewsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJNewsDetailView.h; sourceTree = "<group>"; };
+		85F279FB1CFFC231001EA1C9 /* DJNewsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJNewsDetailView.m; sourceTree = "<group>"; };
 		B7DA5293FBDE8E9E4381BA1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F58FD785FB0F21ECD86CF753 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,48 +128,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		85198AC11CFBC7B600026C48 /* Text */ = {
+		85122DA91D000E42009B7FD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				85198ADD1CFC384400026C48 /* Models */,
-				85198ADC1CFC383200026C48 /* Views */,
+				85122DAA1D000E42009B7FD9 /* DJNewsContentMgr.h */,
+				85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */,
+				85122DAC1D000E42009B7FD9 /* DJNewsDetailModel.h */,
+				85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */,
+				85122DAE1D000E42009B7FD9 /* DJTextImg.h */,
+				85122DAF1D000E42009B7FD9 /* DJTextImg.m */,
+				85122DB01D000E42009B7FD9 /* dummyJSON.json */,
 			);
-			path = Text;
-			sourceTree = "<group>";
-		};
-		85198ADC1CFC383200026C48 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				85198AC21CFBC81800026C48 /* DJTextDisplay.h */,
-				85198AC31CFBC81800026C48 /* DJTextDisplay.m */,
-				85198AEF1CFC4C6D00026C48 /* DJMagnifiedViewr.h */,
-				85198AF01CFC4C6D00026C48 /* DJMagnifiedViewr.m */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		85198ADD1CFC384400026C48 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				851B0D4B1CFDAC5000E19B02 /* NoImage.png */,
-				85198ADE1CFC397B00026C48 /* DJCoreTextImageData.h */,
-				85198ADF1CFC397B00026C48 /* DJCoreTextImageData.m */,
-				85198AD11CFBD26F00026C48 /* DJCoreTextData.h */,
-				85198AD21CFBD26F00026C48 /* DJCoreTextData.m */,
-				85198AE91CFC3FA300026C48 /* DJCoreTextLinkData.h */,
-				85198AEA1CFC3FA300026C48 /* DJCoreTextLinkData.m */,
-				85198ACB1CFBD13E00026C48 /* DJCTFrameParserConfig.h */,
-				85198ACC1CFBD13E00026C48 /* DJCTFrameParserConfig.m */,
-				85198ACE1CFBD1B100026C48 /* DJCTFrameParser.h */,
-				85198ACF1CFBD1B100026C48 /* DJCTFrameParser.m */,
-				85198AD41CFBE4DE00026C48 /* dummyJSON.json */,
-			);
-			name = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8526025D1CFED08800CFD6C4 /* YYText */ = {
 			isa = PBXGroup;
 			children = (
+				85122DA91D000E42009B7FD9 /* Model */,
 				8526025E1CFED09500CFD6C4 /* View */,
 			);
 			path = YYText;
@@ -187,6 +154,9 @@
 		8526025E1CFED09500CFD6C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				851B0D4B1CFDAC5000E19B02 /* NoImage.png */,
+				85F279FA1CFFC231001EA1C9 /* DJNewsDetailView.h */,
+				85F279FB1CFFC231001EA1C9 /* DJNewsDetailView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				8526025D1CFED08800CFD6C4 /* YYText */,
-				85198AC11CFBC7B600026C48 /* Text */,
 				857AF4D51CF82B0F0090A3F2 /* Category */,
 				857AF4CD1CF82A6D0090A3F2 /* Util */,
 				857AF4CB1CF823D20090A3F2 /* BaseController */,
@@ -404,8 +373,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85122DB41D000E42009B7FD9 /* dummyJSON.json in Resources */,
 				857AF49F1CF7E7420090A3F2 /* LaunchScreen.storyboard in Resources */,
-				85198AD51CFBE4DE00026C48 /* dummyJSON.json in Resources */,
 				851B0D4C1CFDAC5000E19B02 /* NoImage.png in Resources */,
 				857AF49C1CF7E7420090A3F2 /* Assets.xcassets in Resources */,
 			);
@@ -482,17 +451,14 @@
 			files = (
 				857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */,
 				85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */,
-				85198AC41CFBC81800026C48 /* DJTextDisplay.m in Sources */,
 				857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */,
-				85198AF11CFC4C6D00026C48 /* DJMagnifiedViewr.m in Sources */,
-				85198AEB1CFC3FA300026C48 /* DJCoreTextLinkData.m in Sources */,
+				85122DB31D000E42009B7FD9 /* DJTextImg.m in Sources */,
+				85122DB21D000E42009B7FD9 /* DJNewsDetailModel.m in Sources */,
+				85F279FC1CFFC231001EA1C9 /* DJNewsDetailView.m in Sources */,
 				857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */,
-				85198AE01CFC397B00026C48 /* DJCoreTextImageData.m in Sources */,
+				85122DB11D000E42009B7FD9 /* DJNewsContentMgr.m in Sources */,
 				857AF4D81CF82B0F0090A3F2 /* NSString+DJMD5String.m in Sources */,
 				857AF4D01CF82A810090A3F2 /* DJAPPUtility.m in Sources */,
-				85198AD31CFBD26F00026C48 /* DJCoreTextData.m in Sources */,
-				85198AD01CFBD1B100026C48 /* DJCTFrameParser.m in Sources */,
-				85198ACD1CFBD13E00026C48 /* DJCTFrameParserConfig.m in Sources */,
 				857AF4911CF7E7420090A3F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

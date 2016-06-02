@@ -1,5 +1,5 @@
 [ {
-"type" : "img",
+"type" : 0,
 "width" : 400,
 "height" : 160,
 "url" : "http://dl.vcllq.com/userfiles/1/images/news/newsInfo/2016/05/1d3a48791e544e351199c68cd6f77085.jpg"
@@ -7,39 +7,39 @@
 { "color" : "blue",
 "content" : "更进一步地，实际工作中，我们更希望通过一个排版文件，来设置需要排版的文字的 ",
 "size" : 16,
-"type" : "txt"
+"type" : 1
 },
 { "color" : "red",
 "content" : "内容、颜色、字体",
 "size" : 22,
-"type" : "txt"
+"type" : 1
 },
 { "color" : "black",
 "content" : "大小等信息。\n",
 "size" : 16,
-"type" : "txt"
+"type" : 1
 },
 { "color" : "default",
 "content" : "我在开发猿题库应用时，自己定义了一个基于UBB的排版模版。但是实现该排版文件的解析器要花费大量的篇幅，考虑到这并不是本章的重点，所以我们以一个较简单的排版文件来讲解其思想。",
-"type" : "txt"
+"type" : 1
 },
 {
-"type" : "img",
+"type" : 0,
 "width" : 50,
 "height" : 32,
 "url" : "http://dl.vcllq.com/userfiles/1/images/news/newsInfo/2016/05/4a5f1a5a6fc66acc7716c9c1c9aa5e53.jpg"
 },
-{ "color" : "default",
+{"color" : "default",
 "content" : "这在这里尝试放一个参考链接：",
-"type" : "txt"
+"type" : 1
 },
 { "color" : "blue",
 "content" : "链接文字",
 "url" : "http://blog.devtang.com",
-"type" : "link"
+"type" : 2
 },
 { "color" : "default",
 "content" : "大家可以尝试点击一下",
-"type" : "txt"
+"type" : 1
 }
 ]
