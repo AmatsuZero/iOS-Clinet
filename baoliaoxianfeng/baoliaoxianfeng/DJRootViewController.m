@@ -45,7 +45,7 @@ static DJRootViewController* this;
     DJCTFrameParserConfig* config = [[DJCTFrameParserConfig alloc]init];
     config.textColor = [UIColor greenColor];
     config.width = self.view.frame.size.width;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"dummyJSON" ofType:@""];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"dummyJSON" ofType:@"json"];
     DJCoreTextData *data = [DJCTFrameParser parseTemplateFile:path config:config];
     textDis.data = data;
     textDis.backgroundColor = [UIColor whiteColor];

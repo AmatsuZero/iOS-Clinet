@@ -25,7 +25,7 @@ typedef enum DJCTDisplayViewState : NSInteger {
 #define ANCHOR_TARGET_TAG 1
 #define FONT_HEIGHT  40
 
-@interface DJTextDisplay ()<UIGestureRecognizerDelegate>
+@interface DJTextDisplay ()<UIGestureRecognizerDelegate,DJCoreTextImageDataDelegate>
 @property (nonatomic) NSInteger selectionStartPosition;
 @property (nonatomic) NSInteger selectionEndPosition;
 @property (nonatomic) DJCTDisplayViewState state;
@@ -179,7 +179,8 @@ typedef enum DJCTDisplayViewState : NSInteger {
     CTFrameDraw(self.data.ctFrame, context);
     
     for (DJCoreTextImageData * imageData in self.data.imageArray) {
-        UIImage *image = [UIImage imageNamed:imageData.name];
+        imageData.delegate = self;
+        UIImage *image = [UIImage imageWithContentsOfFile:imageData.picURL];
         if (image) {
             CGContextDrawImage(context, imageData.imagePosition, image.CGImage);
         }
@@ -520,5 +521,12 @@ typedef enum DJCTDisplayViewState : NSInteger {
     //待实现shareExtension
 }
 
+#pragma mark -- 图片数据代理方法
+-(void)coretextImgData:(DJCoreTextImageData *)imgdata replceWithNewImg:(NSString*)newURL
+{
+    imgdata.picURL = newURL;
+    
+    [self setNeedsDisplay];
+}
 
 @end

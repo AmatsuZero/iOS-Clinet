@@ -88,7 +88,7 @@
                 } else if ([type isEqualToString:@"img"]){
                     // 创建 CoreTextImageData
                     DJCoreTextImageData *imageData = [[DJCoreTextImageData alloc] init];
-                    imageData.name = dict[@"name"];
+                    imageData.picURL = dict[@"url"];
                     imageData.position = [result length];
                     [imageArray addObject:imageData];
                     // 创建空白占位符，并且设置它的 CTRunDelegate 信息

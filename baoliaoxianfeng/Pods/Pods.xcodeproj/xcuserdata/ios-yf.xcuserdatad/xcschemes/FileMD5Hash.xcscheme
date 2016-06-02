@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1D4CF5F69F4EDF07894C8E92'
+               BlueprintIdentifier = 'B773FBF918FDB798CAB4F6EB'
                BlueprintName = 'FileMD5Hash'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libFileMD5Hash.a'>

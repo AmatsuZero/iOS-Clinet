@@ -2,7 +2,7 @@
 "type" : "img",
 "width" : 400,
 "height" : 160,
-"name" : "coretext-image-1.jpg"
+"url" : "http://dl.vcllq.com/userfiles/1/images/news/newsInfo/2016/05/1d3a48791e544e351199c68cd6f77085.jpg"
 },
 { "color" : "blue",
 "content" : "更进一步地，实际工作中，我们更希望通过一个排版文件，来设置需要排版的文字的 ",
@@ -27,7 +27,7 @@
 "type" : "img",
 "width" : 50,
 "height" : 32,
-"name" : "coretext-image-2.jpg"
+"url" : "http://dl.vcllq.com/userfiles/1/images/news/newsInfo/2016/05/4a5f1a5a6fc66acc7716c9c1c9aa5e53.jpg"
 },
 { "color" : "default",
 "content" : "这在这里尝试放一个参考链接：",
