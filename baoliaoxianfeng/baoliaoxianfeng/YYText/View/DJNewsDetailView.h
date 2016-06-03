@@ -7,7 +7,10 @@
 //
 
 #import <YYText/YYText.h>
+#import "DJNewsContentMgr.h"
 
 @interface DJNewsDetailView : YYTextView
+//内容管理者
+@property(nonatomic,strong)DJNewsContentMgr* mgr;
 
 @end

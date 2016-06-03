@@ -12,6 +12,8 @@
 		85122DB41D000E42009B7FD9 /* dummyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 85122DB01D000E42009B7FD9 /* dummyJSON.json */; };
 		85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */; };
 		851B0D4C1CFDAC5000E19B02 /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 851B0D4B1CFDAC5000E19B02 /* NoImage.png */; };
+		853A06761D01694F001C29B8 /* DJCommentToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A06751D01694F001C29B8 /* DJCommentToolBar.m */; };
+		853A06791D018E21001C29B8 /* DJContentEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A06781D018E21001C29B8 /* DJContentEditor.m */; };
 		857AF4911CF7E7420090A3F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4901CF7E7420090A3F2 /* main.m */; };
 		857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4931CF7E7420090A3F2 /* DJAppDelegate.m */; };
 		857AF49C1CF7E7420090A3F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857AF49B1CF7E7420090A3F2 /* Assets.xcassets */; };
@@ -53,6 +55,10 @@
 		85198AC81CFBD06700026C48 /* UIView+frameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frameAdjust.h"; sourceTree = "<group>"; };
 		85198AC91CFBD06700026C48 /* UIView+frameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frameAdjust.m"; sourceTree = "<group>"; };
 		851B0D4B1CFDAC5000E19B02 /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NoImage.png; path = ../../Text/NoImage.png; sourceTree = "<group>"; };
+		853A06741D01694F001C29B8 /* DJCommentToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJCommentToolBar.h; sourceTree = "<group>"; };
+		853A06751D01694F001C29B8 /* DJCommentToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJCommentToolBar.m; sourceTree = "<group>"; };
+		853A06771D018E21001C29B8 /* DJContentEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJContentEditor.h; sourceTree = "<group>"; };
+		853A06781D018E21001C29B8 /* DJContentEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJContentEditor.m; sourceTree = "<group>"; };
 		857AF48C1CF7E7410090A3F2 /* baoliaoxianfeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baoliaoxianfeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857AF4901CF7E7420090A3F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		857AF4921CF7E7420090A3F2 /* DJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +162,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		853A06731D01691E001C29B8 /* CommentToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				853A06741D01694F001C29B8 /* DJCommentToolBar.h */,
+				853A06751D01694F001C29B8 /* DJCommentToolBar.m */,
+			);
+			path = CommentToolBar;
+			sourceTree = "<group>";
+		};
 		857AF4831CF7E7410090A3F2 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +196,7 @@
 		857AF48E1CF7E7420090A3F2 /* baoliaoxianfeng */ = {
 			isa = PBXGroup;
 			children = (
+				853A06731D01691E001C29B8 /* CommentToolBar */,
 				8526025D1CFED08800CFD6C4 /* YYText */,
 				857AF4D51CF82B0F0090A3F2 /* Category */,
 				857AF4CD1CF82A6D0090A3F2 /* Util */,
@@ -238,6 +254,8 @@
 			children = (
 				857AF4C61CF7F87B0090A3F2 /* DJRootViewController.h */,
 				857AF4C71CF7F87B0090A3F2 /* DJRootViewController.m */,
+				853A06771D018E21001C29B8 /* DJContentEditor.h */,
+				853A06781D018E21001C29B8 /* DJContentEditor.m */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -444,8 +462,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853A06791D018E21001C29B8 /* DJContentEditor.m in Sources */,
 				857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */,
 				85198ACA1CFBD06700026C48 /* UIView+frameAdjust.m in Sources */,
+				853A06761D01694F001C29B8 /* DJCommentToolBar.m in Sources */,
 				857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */,
 				85122DB21D000E42009B7FD9 /* DJNewsDetailModel.m in Sources */,
 				85F279FC1CFFC231001EA1C9 /* DJNewsDetailView.m in Sources */,

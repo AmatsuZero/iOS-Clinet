@@ -78,7 +78,8 @@
             case DJNewsModelTypeImg:{//图片内容
                 UIImageView* imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, model.width, model.height)];
                 [imgView sd_setImageWithURL:[NSURL URLWithString:model.url] placeholderImage:[UIImage imageNamed:@"NoImage"]];
-                imgView.contentMode = UIViewContentModeScaleAspectFit;
+                imgView.contentMode = UIViewContentModeScaleAspectFill;
+                imgView.clipsToBounds = YES;
                 NSMutableAttributedString *attachText = [NSMutableAttributedString yy_attachmentStringWithContent:imgView contentMode:UIViewContentModeCenter attachmentSize:imgView.frame.size alignToFont:self.lastFont alignment:YYTextVerticalAlignmentCenter];
                 [attachText yy_setTextHighlightRange:attachText.yy_rangeOfAll
                                                color:[UIColor colorWithRed:0.093 green:0.492 blue:1.000 alpha:1.000]

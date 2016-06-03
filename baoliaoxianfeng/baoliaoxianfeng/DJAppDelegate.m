@@ -27,7 +27,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //启动切换为RootViewController
-    self.window.rootViewController = [DJRootViewController getStandardRootVC];
+    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:[DJRootViewController getStandardRootVC]];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
     return YES;
