@@ -90,7 +90,7 @@
                 [content appendAttributedString:attachText];
             }
                 break;
-            case DJNewsModelTypeLink:{
+            case DJNewsModelTypeLink:{//超链内容
                 NSMutableAttributedString* txt = [[NSMutableAttributedString alloc]initWithString:model.content];
                 txt.yy_underlineStyle = NSUnderlineStyleSingle;
                 txt.yy_font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
