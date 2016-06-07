@@ -10,6 +10,7 @@
 #import "DJNewsDetailModel.h"
 #import "NSAttributedString+YYText.h"
 #import "UIImageView+WebCache.h"
+#import "AFURLSessionManager.h"
 
 @interface DJNewsContentMgr ()
 
@@ -24,12 +25,20 @@
 
 @implementation DJNewsContentMgr
 
+@synthesize textContent = _textContent;
+
 -(NSMutableAttributedString*)textContent
 {
     if (!_textContent) {
         _textContent = [self contentStr:self.dataArr];
     }
     return _textContent;
+}
+
+-(void)setTextContent:(NSMutableAttributedString *)textContent
+{
+    _textContent = textContent;
+    
 }
 
 -(NSMutableArray<DJNewsDetailModel *> *)dataArr
@@ -108,6 +117,86 @@
     }
     
     return content;
+}
+
+-(void)insertImgintoCurrentTextView:(YYTextView*)textView generalFont:(UIFont*)font imgView:(UIImage*)img
+{
+    NSMutableAttributedString* tmp = [[NSMutableAttributedString alloc]initWithAttributedString:textView.attributedText];
+    NSAttributedString* br = [[NSAttributedString alloc]initWithString:@"\n" attributes:@{NSFontAttributeName:font}];//插入换行
+    [tmp appendAttributedString:br];
+    UIImageView* imgView = [[UIImageView alloc]initWithImage:img];
+    imgView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200);
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView.clipsToBounds = YES;
+    NSMutableAttributedString *attachText = [NSMutableAttributedString yy_attachmentStringWithContent:imgView contentMode:UIViewContentModeCenter attachmentSize:imgView.frame.size alignToFont:font alignment:YYTextVerticalAlignmentCenter];
+    [tmp appendAttributedString:attachText];
+    [tmp appendAttributedString:br];
+    textView.attributedText = [tmp copy];
+    self.textContent = tmp;
+}
+
+-(void)uploadPic:(UIImage*)img progressView:(UIProgressView*)progressView
+{
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
+                                                                                              URLString:@"http://example.com/upload"
+                                                                                             parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+    {
+        // 在此位置生成一个要上传的数据体
+        // form对应的是html文件中的表单
+        NSData* imgData = UIImagePNGRepresentation(img);
+        NSString* fileName = [NSString stringWithFormat:@"%@",[NSDate date]];
+        [formData appendPartWithFormData:imgData name:fileName];
+        
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                      // This is not called back on the main queue.
+                      // You are responsible for dispatching to the main queue for UI updates
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          //Update the progress view
+                          [progressView setProgress:uploadProgress.fractionCompleted];
+                      });
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ %@", response, responseObject);
+                      }
+                  }];
+    
+    [uploadTask resume];
+}
+
+-(void)saveContent:(NSAttributedString *)content
+{
+//    __block NSMutableDictionary* jsonDic = [NSMutableDictionary dictionary];
+    [content enumerateAttributesInRange:content.yy_rangeOfAll options: NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+        NSLog(@"Attrs: %@,Range:%@, Content:%@",attrs,NSStringFromRange(range), [content attributedSubstringFromRange:range]);
+        if ([attrs.allKeys containsObject:@"YYTextAttachment"]) {//说明这是图片
+            YYTextAttachment* attachment = attrs[@"YYTextAttachment"];
+            NSLog(@"%@",attachment.content);
+        }
+    }];
+}
+
+#pragma mark YYTextViewDelegate
+-(void)textViewDidChange:(UITextView *)textView
+{
+    
+}
+
+#pragma mark -- ToolBarDelegate
+-(void)toolBar:(DJEditorToolBar *)toolBar img:(UIImage *)img
+{
+    YYTextView* textView = (YYTextView*)self.contentKeeper;
+    [self insertImgintoCurrentTextView:textView generalFont:textView.font imgView:img];
 }
 
 @end

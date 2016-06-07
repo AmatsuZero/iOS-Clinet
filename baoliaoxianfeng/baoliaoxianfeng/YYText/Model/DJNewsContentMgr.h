@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YYText.h"
+#import "DJEditorToolBar.h"
+
 @class DJNewsDetailModel;
 @class DJTextImg;
 
@@ -21,16 +24,20 @@
 
 @protocol DJNewsContentSaveDelegate <NSObject>
 
-
+@optional
 
 @end
 
-@interface DJNewsContentMgr : NSObject
+@interface DJNewsContentMgr : NSObject<YYTextViewDelegate,DJEditorToolBarDelegate>
 
 @property(nonatomic, strong) NSMutableAttributedString* textContent;
 
 @property(nonatomic,weak) id <DJNewsContentMgrDelegate> delegate;
 
 @property(nonatomic,weak) id <DJNewsContentSaveDelegate>contentKeeper;
+
+//将图像插入当前文本当中
+-(void)insertImgintoCurrentTextView:(YYTextView*)text generalFont:(UIFont*)font imgView:(UIImage*)img;
+-(void)saveContent:(NSAttributedString*)content;
 
 @end

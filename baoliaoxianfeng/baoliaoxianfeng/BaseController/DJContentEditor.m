@@ -23,6 +23,14 @@
 
 @implementation DJContentEditor
 
+-(instancetype)init
+{
+    if (self = [super init]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    return self;
+}
+
 -(DJEditorToolBar *)toolBar
 {
     if (!_toolBar) {
@@ -61,8 +69,18 @@
     self.view.backgroundColor = [UIColor brownColor];
     self.title = @"编辑新闻";
     self.isShowToolBar = YES;
+    self.toolBar.toolBardelegate = self.textView.mgr;
+    
+    //测试保存按钮
+    UIBarButtonItem* saveBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveEditedContent:)];
+    self.navigationItem.rightBarButtonItem = saveBtn;
+    
     [self.textView becomeFirstResponder];
 }
 
+-(void)saveEditedContent:(UIBarButtonItem*)sender
+{
+    [self.textView.mgr saveContent:self.textView.attributedText];
+}
 
 @end

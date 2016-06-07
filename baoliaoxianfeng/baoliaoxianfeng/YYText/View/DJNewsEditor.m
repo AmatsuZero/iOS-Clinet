@@ -7,9 +7,8 @@
 //
 
 #import "DJNewsEditor.h"
-#import "DJNewsContentMgr.h"
 
-@interface DJNewsEditor ()<YYTextViewDelegate>
+@interface DJNewsEditor ()<DJNewsContentSaveDelegate>
 
 @end
 
@@ -18,21 +17,12 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        self.delegate = self;
+        _mgr = [[DJNewsContentMgr alloc]init];
+        self.delegate = _mgr;
+        _mgr.contentKeeper = self;
     }
     return self;
 }
 
-
-#pragma mark -- YYTextViewDelegate
-- (BOOL)textViewShouldBeginEditing:(YYTextView *)textView
-{
-    return YES;
-}
-
-- (void)textViewDidEndEditing:(YYTextView *)textView
-{
-
-}
 
 @end

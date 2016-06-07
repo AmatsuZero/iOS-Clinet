@@ -8,8 +8,26 @@
 
 #import "DJEditorToolBar.h"
 #import "Masonry.h"
+#import "DJNewsContentMgr.h"
+
+@interface DJEditorToolBar ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
+@property(nonatomic,strong)UIImagePickerController* imagePickerCtrl;
+
+@end
 
 @implementation DJEditorToolBar
+
+-(UIImagePickerController *)imagePickerCtrl
+{
+    if (!_imagePickerCtrl) {
+        _imagePickerCtrl = [[UIImagePickerController alloc]init];
+        _imagePickerCtrl.delegate = self;
+        _imagePickerCtrl.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        _imagePickerCtrl.allowsEditing = NO;
+    }
+    return _imagePickerCtrl;
+}
 
 -(instancetype)init
 {
@@ -29,7 +47,11 @@
 #pragma mark -- 测试事件
 -(void)testAction1:(UIBarButtonItem*)sender
 {
-
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self.imagePickerCtrl animated:YES completion:^{
+            
+        }];
+    }
 }
 -(void)testAction2:(UIBarButtonItem*)sender
 {
@@ -78,5 +100,19 @@
         
     }];
 }
+
+#pragma mark -- imagePickerCtrlDelegate
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage* img = info[UIImagePickerControllerOriginalImage];
+    [self.toolBardelegate toolBar:self img:img];
+    [self.imagePickerCtrl dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self.imagePickerCtrl dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

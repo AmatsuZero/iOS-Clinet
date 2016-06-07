@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class DJEditorToolBar;
+
+@protocol DJEditorToolBarDelegate <NSObject>
+
+@optional
+
+-(void)toolBar:(DJEditorToolBar*)toolBar img:(UIImage*)img;
+
+@end
+
 @interface DJEditorToolBar : UIToolbar
+
+@property (nonatomic,weak) id<DJEditorToolBarDelegate> toolBardelegate;
 
 @end
