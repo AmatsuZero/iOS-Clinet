@@ -19,10 +19,18 @@
 
 @end
 
+@protocol DJNewsContentSaveDelegate <NSObject>
+
+
+
+@end
+
 @interface DJNewsContentMgr : NSObject
 
 @property(nonatomic, strong) NSMutableAttributedString* textContent;
 
 @property(nonatomic,weak) id <DJNewsContentMgrDelegate> delegate;
+
+@property(nonatomic,weak) id <DJNewsContentSaveDelegate>contentKeeper;
 
 @end

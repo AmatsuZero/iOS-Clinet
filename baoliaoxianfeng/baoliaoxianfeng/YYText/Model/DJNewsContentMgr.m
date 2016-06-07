@@ -41,7 +41,6 @@
     return _dataArr;
 }
 
-
 -(NSMutableArray<DJNewsDetailModel *> *)getNewsContentByJSONPath:(NSString *)path
 {
     NSData *data = [NSData dataWithContentsOfFile:path];
