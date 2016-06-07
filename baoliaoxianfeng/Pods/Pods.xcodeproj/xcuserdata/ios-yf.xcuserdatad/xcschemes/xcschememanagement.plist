@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>39F47A152DAE31DFE2C27181E8A3BE0E</key>
+		<key>0F1F90E8E58BD6FEC04273016388377F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE3F878F1C4FFA08CC9C6180F3037562</key>
+		<key>C29F6AA49000F4A2B6C0E12A302DD580</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC8C5F40A2C5270B8B762EB4507927A6</key>
+		<key>DD527DC4C0FAF18A0DFEC47E5E6F5561</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

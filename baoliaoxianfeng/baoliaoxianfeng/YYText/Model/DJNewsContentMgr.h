@@ -37,7 +37,7 @@
 @property(nonatomic,weak) id <DJNewsContentSaveDelegate>contentKeeper;
 
 //将图像插入当前文本当中
--(void)insertImgintoCurrentTextView:(YYTextView*)text generalFont:(UIFont*)font imgView:(UIImage*)img;
+-(void)insertImgintoCurrentTextView:(YYTextView*)text generalFont:(UIFont*)font image:(UIImage*)img;
 -(void)saveContent:(NSAttributedString*)content;
 
 @end

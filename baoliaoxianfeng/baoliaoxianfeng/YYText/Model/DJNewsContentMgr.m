@@ -11,11 +11,14 @@
 #import "NSAttributedString+YYText.h"
 #import "UIImageView+WebCache.h"
 #import "AFURLSessionManager.h"
+#import "MBProgressHUD.h"
 
 @interface DJNewsContentMgr ()
 
 @property(nonatomic,strong)NSMutableArray<DJNewsDetailModel*>* dataArr;
 @property(nonatomic,strong)UIFont* lastFont;
+@property(nonatomic,strong)NSMutableDictionary* attrStrDic;
+@property(nonatomic,strong)NSMutableDictionary* photoURL;
 
 -(NSMutableArray<DJNewsDetailModel*>*)getNewsContentByJSONPath:(NSString*)path;
 
@@ -39,6 +42,22 @@
 {
     _textContent = textContent;
     
+}
+
+-(NSMutableDictionary *)attrStrDic
+{
+    if (!_attrStrDic) {
+        _attrStrDic = [NSMutableDictionary dictionary];
+    }
+    return _attrStrDic;
+}
+
+-(NSMutableDictionary *)photoURL
+{
+    if (!_photoURL) {
+        _photoURL = [NSMutableDictionary dictionary];
+    }
+    return _photoURL;
 }
 
 -(NSMutableArray<DJNewsDetailModel *> *)dataArr
@@ -119,7 +138,7 @@
     return content;
 }
 
--(void)insertImgintoCurrentTextView:(YYTextView*)textView generalFont:(UIFont*)font imgView:(UIImage*)img
+-(void)insertImgintoCurrentTextView:(YYTextView*)textView generalFont:(UIFont*)font image:(UIImage*)img
 {
     NSMutableAttributedString* tmp = [[NSMutableAttributedString alloc]initWithAttributedString:textView.attributedText];
     NSAttributedString* br = [[NSAttributedString alloc]initWithString:@"\n" attributes:@{NSFontAttributeName:font}];//插入换行
@@ -128,6 +147,13 @@
     imgView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200);
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     imgView.clipsToBounds = YES;
+    //上传进度遮罩
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:imgView animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Uploading...";
+    hud.color = [UIColor clearColor];
+    [self.photoURL setObject:@"aaaa" forKey:[NSString stringWithFormat:@"%@",img]];
+    [self uploadPic:img progressView:hud];
     NSMutableAttributedString *attachText = [NSMutableAttributedString yy_attachmentStringWithContent:imgView contentMode:UIViewContentModeCenter attachmentSize:imgView.frame.size alignToFont:font alignment:YYTextVerticalAlignmentCenter];
     [tmp appendAttributedString:attachText];
     [tmp appendAttributedString:br];
@@ -135,8 +161,27 @@
     self.textContent = tmp;
 }
 
--(void)uploadPic:(UIImage*)img progressView:(UIProgressView*)progressView
+-(void)uploadPic:(UIImage*)img progressView:(UIView*)progressView
 {
+    //模拟上传事件
+//    NSProgress* dummyProgress = [NSProgress progressWithTotalUnitCount:100000];
+//    [[NSOperationQueue new]addOperationWithBlock:^{
+//        while (dummyProgress.completedUnitCount<dummyProgress.totalUnitCount) {
+//            dummyProgress.completedUnitCount += 1;
+//            if ([progressView isKindOfClass:[MBProgressHUD class]]) {
+//                    MBProgressHUD* progressHUD = (MBProgressHUD*)progressView;
+//                    progressHUD.progress = dummyProgress.fractionCompleted;
+//                if (dummyProgress.fractionCompleted==1) {
+//                    [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//                        [progressHUD hide:YES];//隐藏竟然不是线程安全的
+//                    }];
+//                }
+//            }
+//        }
+//    }];
+//    
+//    return;
+    
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
                                                                                               URLString:@"http://example.com/upload"
@@ -145,7 +190,7 @@
         // 在此位置生成一个要上传的数据体
         // form对应的是html文件中的表单
         NSData* imgData = UIImagePNGRepresentation(img);
-        NSString* fileName = [NSString stringWithFormat:@"%@",[NSDate date]];
+        NSString* fileName = [NSString stringWithFormat:@"%@",[NSDate date]];//时间戳为文件名
         [formData appendPartWithFormData:imgData name:fileName];
         
     } error:nil];
@@ -156,32 +201,43 @@
     uploadTask = [manager
                   uploadTaskWithStreamedRequest:request
                   progress:^(NSProgress * _Nonnull uploadProgress) {
-                      // This is not called back on the main queue.
-                      // You are responsible for dispatching to the main queue for UI updates
-                      dispatch_async(dispatch_get_main_queue(), ^{
-                          //Update the progress view
-                          [progressView setProgress:uploadProgress.fractionCompleted];
-                      });
+                      if ([progressView isKindOfClass:[MBProgressHUD class]]) {
+                            MBProgressHUD* progressHUD = (MBProgressHUD*)progressView;
+                            progressHUD.progress = uploadProgress.fractionCompleted;
+                        if (uploadProgress.fractionCompleted==1) {//完成就隐藏掉...
+                            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                                [progressHUD hide:YES];//隐藏竟然不是线程安全的
+                            }];
+                        }
+                      }
                   }
                   completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                       if (error) {
                           NSLog(@"Error: %@", error);
+#warning TODO -- 添加错误提示HUD！！！
+                          [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                              [(MBProgressHUD*)progressView hide:YES];//隐藏竟然不是线程安全的
+                          }];
                       } else {
                           NSLog(@"%@ %@", response, responseObject);
+                          [self.photoURL setObject:responseObject forKey:[NSString stringWithFormat:@"%@",img]];
                       }
                   }];
     
     [uploadTask resume];
 }
 
+#warning TODO -- 所有上传任务结束以前是不允许保存的！！！
 -(void)saveContent:(NSAttributedString *)content
 {
-//    __block NSMutableDictionary* jsonDic = [NSMutableDictionary dictionary];
     [content enumerateAttributesInRange:content.yy_rangeOfAll options: NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         NSLog(@"Attrs: %@,Range:%@, Content:%@",attrs,NSStringFromRange(range), [content attributedSubstringFromRange:range]);
         if ([attrs.allKeys containsObject:@"YYTextAttachment"]) {//说明这是图片
             YYTextAttachment* attachment = attrs[@"YYTextAttachment"];
-            NSLog(@"%@",attachment.content);
+            if([attachment.content isKindOfClass:[UIImageView class]]){
+                NSString* key = [NSString stringWithFormat:@"%@",[attachment.content image]];
+                NSLog(@"🐒%@",self.photoURL[key]);
+            }
         }
     }];
 }
@@ -196,7 +252,7 @@
 -(void)toolBar:(DJEditorToolBar *)toolBar img:(UIImage *)img
 {
     YYTextView* textView = (YYTextView*)self.contentKeeper;
-    [self insertImgintoCurrentTextView:textView generalFont:textView.font imgView:img];
+    [self insertImgintoCurrentTextView:textView generalFont:textView.font image:img];
 }
 
 @end
