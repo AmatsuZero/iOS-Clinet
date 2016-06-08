@@ -20,6 +20,8 @@
         _mgr = [[DJNewsContentMgr alloc]init];
         self.delegate = _mgr;
         _mgr.contentKeeper = self;
+        self.font = [UIFont systemFontOfSize:30];
+        self.textColor = [UIColor redColor];
     }
     return self;
 }

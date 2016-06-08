@@ -12,12 +12,13 @@
 #import "UIImageView+WebCache.h"
 #import "AFURLSessionManager.h"
 #import "MBProgressHUD.h"
+#import "DJAPPUtility.h"
 
 @interface DJNewsContentMgr ()
 
 @property(nonatomic,strong)NSMutableArray<DJNewsDetailModel*>* dataArr;
 @property(nonatomic,strong)UIFont* lastFont;
-@property(nonatomic,strong)NSMutableDictionary* attrStrDic;
+@property(nonatomic,strong)NSMutableArray* attrStrArr;
 @property(nonatomic,strong)NSMutableDictionary* photoURL;
 
 -(NSMutableArray<DJNewsDetailModel*>*)getNewsContentByJSONPath:(NSString*)path;
@@ -44,12 +45,12 @@
     
 }
 
--(NSMutableDictionary *)attrStrDic
+-(NSMutableArray *)attrStrArr
 {
-    if (!_attrStrDic) {
-        _attrStrDic = [NSMutableDictionary dictionary];
+    if (!_attrStrArr) {
+        _attrStrArr = [NSMutableArray array];
     }
-    return _attrStrDic;
+    return _attrStrArr;
 }
 
 -(NSMutableDictionary *)photoURL
@@ -182,7 +183,6 @@
 //    
 //    return;
     
-    
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
                                                                                               URLString:@"http://example.com/upload"
                                                                                              parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
@@ -232,6 +232,16 @@
 {
     [content enumerateAttributesInRange:content.yy_rangeOfAll options: NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         NSLog(@"Attrs: %@,Range:%@, Content:%@",attrs,NSStringFromRange(range), [content attributedSubstringFromRange:range]);
+        NSString* fontColor = [NSString stringWithFormat:@"%@",attrs[@"NSColor"]];//对应值的类型为UICachedDeviceRGBColor，而这种类型是UIKit不认识的（大概在NSKit里），需要以这种形式转换成我们认识的字符串，比如：“UIDeviceRGBColorSpace 0 0 1 1”，
+        NSLog(@"%@",[DJAPPUtility convertToDescriptionStr:fontColor]);
+//        NSDictionary* textContent = @{
+//                                      @"type":@(0),
+//                                      @"content":[content attributedSubstringFromRange:range],
+//                                      @"size":@([attrs[@"NSFont"] fontSize]),
+//                                      @"color":[attrs[@"NSFont"] fontDescriptor]
+//                                      };
+        
+        
         if ([attrs.allKeys containsObject:@"YYTextAttachment"]) {//说明这是图片
             YYTextAttachment* attachment = attrs[@"YYTextAttachment"];
             if([attachment.content isKindOfClass:[UIImageView class]]){
