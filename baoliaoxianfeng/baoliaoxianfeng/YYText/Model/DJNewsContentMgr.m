@@ -153,12 +153,12 @@
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.labelText = @"Uploading...";
     hud.color = [UIColor clearColor];
-    [self.photoURL setObject:@"aaaa" forKey:[NSString stringWithFormat:@"%@",img]];
     [self uploadPic:img progressView:hud];
     NSMutableAttributedString *attachText = [NSMutableAttributedString yy_attachmentStringWithContent:imgView contentMode:UIViewContentModeCenter attachmentSize:imgView.frame.size alignToFont:font alignment:YYTextVerticalAlignmentCenter];
     [tmp appendAttributedString:attachText];
     [tmp appendAttributedString:br];
     textView.attributedText = [tmp copy];
+    
     self.textContent = tmp;
 }
 
@@ -232,23 +232,31 @@
 {
     [content enumerateAttributesInRange:content.yy_rangeOfAll options: NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         NSLog(@"Attrs: %@,Range:%@, Content:%@",attrs,NSStringFromRange(range), [content attributedSubstringFromRange:range]);
-        NSString* fontColor = [NSString stringWithFormat:@"%@",attrs[@"NSColor"]];//对应值的类型为UICachedDeviceRGBColor，而这种类型是UIKit不认识的（大概在NSKit里），需要以这种形式转换成我们认识的字符串，比如：“UIDeviceRGBColorSpace 0 0 1 1”，
-        NSLog(@"%@",[DJAPPUtility convertToDescriptionStr:fontColor]);
-//        NSDictionary* textContent = @{
-//                                      @"type":@(0),
-//                                      @"content":[content attributedSubstringFromRange:range],
-//                                      @"size":@([attrs[@"NSFont"] fontSize]),
-//                                      @"color":[attrs[@"NSFont"] fontDescriptor]
-//                                      };
-        
-        
-        if ([attrs.allKeys containsObject:@"YYTextAttachment"]) {//说明这是图片
+        UIFont* font = attrs[@"NSFont"];
+        NSDictionary* textContent = nil;
+        if ([attrs.allKeys containsObject:@"YYTextAttachment"]) {
             YYTextAttachment* attachment = attrs[@"YYTextAttachment"];
-            if([attachment.content isKindOfClass:[UIImageView class]]){
+            if([attachment.content isKindOfClass:[UIImageView class]]){//说明这是图片
+                UIImageView* imgView = attachment.content;
                 NSString* key = [NSString stringWithFormat:@"%@",[attachment.content image]];
-                NSLog(@"🐒%@",self.photoURL[key]);
+                textContent = @{
+                                @"type":@(0),
+                                @"width":@(imgView.width),
+                                @"height":@(imgView.height),
+                                @"size":@(font.pointSize),
+                                @"url":self.photoURL[key]?:@"http://www.example.com"
+                                };
             }
+        } else {
+            NSString* fontColor = [NSString stringWithFormat:@"%@",attrs[@"NSColor"]];//对应值的类型为UICachedDeviceRGBColor，而这种类型是UIKit不认识的（大概在NSKit里），需要以这种形式转换成我们认识的字符串，比如：“UIDeviceRGBColorSpace 0 0 1 1”，
+            textContent = @{
+                            @"type":@(1),
+                         @"content":[content attributedSubstringFromRange:range],
+                            @"size":@(font.pointSize),
+                           @"color":fontColor?fontColor:@"default"//没有设置颜色，则设置一个默认值
+                            };
         }
+        [self.attrStrArr addObject:textContent];
     }];
 }
 

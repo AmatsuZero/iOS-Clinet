@@ -15,6 +15,7 @@
 		853A06761D01694F001C29B8 /* DJCommentToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A06751D01694F001C29B8 /* DJCommentToolBar.m */; };
 		853A06791D018E21001C29B8 /* DJContentEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A06781D018E21001C29B8 /* DJContentEditor.m */; };
 		853A06821D019566001C29B8 /* DJEditorToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A06811D019566001C29B8 /* DJEditorToolBar.m */; };
+		856D26AA1D0D72E9007804E9 /* DJTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 856D26A91D0D72E9007804E9 /* DJTextParser.m */; };
 		857AF4911CF7E7420090A3F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4901CF7E7420090A3F2 /* main.m */; };
 		857AF4941CF7E7420090A3F2 /* DJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AF4931CF7E7420090A3F2 /* DJAppDelegate.m */; };
 		857AF49C1CF7E7420090A3F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857AF49B1CF7E7420090A3F2 /* Assets.xcassets */; };
@@ -63,6 +64,8 @@
 		853A06781D018E21001C29B8 /* DJContentEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJContentEditor.m; sourceTree = "<group>"; };
 		853A06801D019566001C29B8 /* DJEditorToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJEditorToolBar.h; sourceTree = "<group>"; };
 		853A06811D019566001C29B8 /* DJEditorToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJEditorToolBar.m; sourceTree = "<group>"; };
+		856D26A81D0D72E9007804E9 /* DJTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTextParser.h; sourceTree = "<group>"; };
+		856D26A91D0D72E9007804E9 /* DJTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTextParser.m; sourceTree = "<group>"; };
 		857AF48C1CF7E7410090A3F2 /* baoliaoxianfeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baoliaoxianfeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857AF4901CF7E7420090A3F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		857AF4921CF7E7420090A3F2 /* DJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJAppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				85122DAB1D000E42009B7FD9 /* DJNewsContentMgr.m */,
 				85122DAC1D000E42009B7FD9 /* DJNewsDetailModel.h */,
 				85122DAD1D000E42009B7FD9 /* DJNewsDetailModel.m */,
+				856D26A81D0D72E9007804E9 /* DJTextParser.h */,
+				856D26A91D0D72E9007804E9 /* DJTextParser.m */,
 				85122DB01D000E42009B7FD9 /* dummyJSON.json */,
 			);
 			path = Model;
@@ -480,6 +485,7 @@
 				857AF4C51CF7F6720090A3F2 /* DJCustomURLProtocol.m in Sources */,
 				85122DB21D000E42009B7FD9 /* DJNewsDetailModel.m in Sources */,
 				85F279FC1CFFC231001EA1C9 /* DJNewsDetailView.m in Sources */,
+				856D26AA1D0D72E9007804E9 /* DJTextParser.m in Sources */,
 				857AF4C81CF7F87B0090A3F2 /* DJRootViewController.m in Sources */,
 				85883F851D066C0B002A3D86 /* DJNewsEditor.m in Sources */,
 				85122DB11D000E42009B7FD9 /* DJNewsContentMgr.m in Sources */,

@@ -8,8 +8,7 @@
 
 #import "DJCommentToolBar.h"
 #import "Masonry.h"
-#import "YYText.h"
-
+#import <YYText/YYText.h>
 @interface DJCommentToolBar ()<YYTextViewDelegate>
 
 @property(nonatomic,strong)YYTextView* commentArea;//评论编辑

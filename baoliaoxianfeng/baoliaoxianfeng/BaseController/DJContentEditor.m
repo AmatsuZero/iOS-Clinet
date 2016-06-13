@@ -52,7 +52,6 @@
 {
     if (!_textView) {
         _textView = [[DJNewsEditor alloc]init];
-        _textView.font = [UIFont systemFontOfSize:30];
         [self.view addSubview:_textView];
         [_textView makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view).with.offset(0);

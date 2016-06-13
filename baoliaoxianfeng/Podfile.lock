@@ -20,6 +20,9 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - YYCategories (1.0.3):
+    - YYCategories/no-arc (= 1.0.3)
+  - YYCategories/no-arc (1.0.3)
   - YYText (1.0.5)
 
 DEPENDENCIES:
@@ -28,6 +31,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - SDWebImage (~> 3.7)
+  - YYCategories
   - YYText
 
 SPEC CHECKSUMS:
@@ -36,6 +40,7 @@ SPEC CHECKSUMS:
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  YYCategories: 0fd4d9eb0994d8d0e355beb4081c8f7202a82b7b
   YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae
 
 COCOAPODS: 0.39.0

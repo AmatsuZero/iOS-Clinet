@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYCategories.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYText.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F1F90E8E58BD6FEC04273016388377F</key>
+		<key>05CC3C95579211FDC6BB876398ABC6A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,17 +62,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>753317C6474D1507A7C0918CC553AC15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C29F6AA49000F4A2B6C0E12A302DD580</key>
+		<key>BD29232A03CAD09C1C1986540D31B398</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD527DC4C0FAF18A0DFEC47E5E6F5561</key>
+		<key>ED6C15428B60F4555FDCF3825805E11F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
